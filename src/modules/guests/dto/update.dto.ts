@@ -1,10 +1,10 @@
 import { ApiPropertyOptional, PartialType } from "@nestjs/swagger";
 import { CreateGuestsDTO } from "./create.dto";
-import { IsBoolean, IsNotEmpty } from "class-validator";
+import { IsBoolean, IsOptional } from "class-validator";
 
 export class UpdateGuestsDTO extends PartialType(CreateGuestsDTO) {
   @ApiPropertyOptional()
-  @IsNotEmpty()
+  @IsOptional()
   @IsBoolean()
-  readonly confirmated: boolean
+  readonly confirmated?: boolean
 }
