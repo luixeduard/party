@@ -1,10 +1,10 @@
-import { ApiPropertyOptional } from "@nestjs/swagger";
-import { IsOptional, Min } from "class-validator";
+import { ApiProperty } from "@nestjs/swagger";
+import { IsNotEmpty, Min } from "class-validator";
 import { NamedObjectDTO } from "src/core/global/dto/global.dto";
 
 export class CreateGuestsDTO extends (NamedObjectDTO){
-  @ApiPropertyOptional()
-  @IsOptional()
+  @ApiProperty()
+  @IsNotEmpty()
   @Min(0)
   readonly no_tickets?: number
 }
