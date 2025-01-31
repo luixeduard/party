@@ -50,8 +50,9 @@ export class GuestsController {
   @ApiConflictResponse({
     description: 'Ocurrio un error al obtener los registros'
   })
-  findAll(@Query() query: FindGuestsDTO) {
-    return this.guestsService.findAll(query);
+  async findAll(@Query() query: FindGuestsDTO) {
+    const guests = await this.guestsService.findAll(query);
+    return guests.rows.map(guest => ({ ...guest.get(), url: `${this.configService.get("app_url")}/api/guests/verify_invitation/${encodeURIComponent(encryptID(guest.id))}`}))
   }
 
   @Get(':id')
