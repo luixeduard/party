@@ -56,8 +56,8 @@ export class GuestsController {
   }
 
   @Get(':id')
-  @UseGuards(AuthGuard('basic'))
-  @ApiBasicAuth()
+  /* @UseGuards(AuthGuard('basic'))
+  @ApiBasicAuth() */
   @ApiOperation({
     summary: 'Obtener único',
     description: 'Obtener un unico registro',
@@ -96,8 +96,8 @@ export class GuestsController {
   }
 
   @Patch(':id')
-  @UseGuards(AuthGuard('basic'))
-  @ApiBasicAuth()
+  /* @UseGuards(AuthGuard('basic'))
+  @ApiBasicAuth() */
   @ApiConsumes('application/json', 'application/x-www-form-urlencoded')
   @ApiOperation({
     summary: 'Actualizar',
